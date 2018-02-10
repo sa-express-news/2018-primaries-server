@@ -1,0 +1,15 @@
+{
+  "name": "saen-2018-primaries-server",
+  "version": "0.0.1",
+  "description": "Back-end proxy server for 2018 primary election results",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kia Farhang",
+  "license": "ISC",
+  "dependencies": {
+    "google-auth-library": "^0.12.0",
+    "googleapis": "^25.0.0"
+  }
+}
