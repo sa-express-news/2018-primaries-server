@@ -9,7 +9,13 @@
   "author": "Kia Farhang",
   "license": "ISC",
   "dependencies": {
+    "@types/readline-sync": "^1.4.3",
     "google-auth-library": "^0.12.0",
-    "googleapis": "^25.0.0"
+    "googleapis": "^25.0.0",
+    "readline-sync": "^1.4.8"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.5",
+    "typescript": "^2.7.1"
   }
 }
