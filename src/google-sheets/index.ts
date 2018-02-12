@@ -1,22 +1,20 @@
 
 import * as fs from "fs";
 import * as readlineSync from "readline-sync";
-import { promisify } from 'util';
+import { promisify } from "util";
 const google = require("googleapis");
 const googleAuth = require("google-auth-library");
-import { GoogleCredentials } from '../types';
+import { GoogleCredentials } from "../types";
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/sheets.googleapis.com-nodejs-quickstart.json
-const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 const TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
-    process.env.USERPROFILE) + '/.credentials/';
-const TOKEN_PATH = TOKEN_DIR + 'sheets.googleapis.com-nodejs-quickstart.json';
-
-
+    process.env.USERPROFILE) + "/.credentials/";
+const TOKEN_PATH = TOKEN_DIR + "sheets.googleapis.com-nodejs-quickstart.json";
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -42,8 +40,7 @@ const authorize = async (credentials: GoogleCredentials): Promise<any> => {
     } catch (e) {
         return getNewToken(oauth2Client);
     }
-}
-
+};
 
 /**
  * Get and store new token after prompting for user authorization, and then
@@ -56,11 +53,11 @@ const authorize = async (credentials: GoogleCredentials): Promise<any> => {
 
 const getNewToken = async (oauth2Client: any): Promise<any> => {
     const authUrl = oauth2Client.generateAuthUrl({
-        access_type: 'offline',
-        scope: SCOPES
+        access_type: "offline",
+        scope: SCOPES,
     });
 
-    console.log('Authorize this app by visiting this url: ', authUrl);
+    console.log(`Authorize this app by visiting this url: ${authUrl}`);
     const code = readlineSync.question("Enter the code from that page here: ");
 
     try {
@@ -71,9 +68,7 @@ const getNewToken = async (oauth2Client: any): Promise<any> => {
     } catch (error) {
         console.log(`Error while trying to receive access token: ${error}`);
     }
-}
-
-
+};
 
 /**
  * Store token to disk be used in later program executions.
@@ -85,7 +80,7 @@ const storeToken = async (token: object): Promise<void> => {
     try {
         fs.mkdirSync(TOKEN_DIR);
     } catch (err) {
-        if (err.code != 'EEXIST') {
+        if (err.code !== "EEXIST") {
             throw err;
         }
     }
@@ -96,42 +91,39 @@ const storeToken = async (token: object): Promise<void> => {
     } catch (error) {
         console.log(`Error storing token: ${error}`);
     }
-}
-
+};
 
 // Load client secrets from a local file.
 const loadGoogleCredentials = async (): Promise<GoogleCredentials> => {
     try {
-        const rawCredentials = await readFile('client_secret.json');
+        const rawCredentials = await readFile("client_secret.json");
         const credentials: GoogleCredentials = JSON.parse(rawCredentials.toString());
         return credentials;
     } catch (e) {
         throw new Error(`Error loading credentials file: ${e}`);
     }
-}
-
+};
 
 /**
- * Print the names and majors of students in a sample spreadsheet:
- * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+ * Fetches all rows in a provided range for a given spreadsheet.
  */
 
 const fetchData = async (auth: any, spreadsheetId: string, range: string): Promise<string[][]> => {
-    const sheets = google.sheets('v4');
+    const sheets = google.sheets("v4");
 
     const get = promisify(sheets.spreadsheets.values.get);
     try {
         const data: { values: string[][] } = await get({
             auth,
+            range,
             spreadsheetId,
-            range
         });
 
         return data.values;
     } catch (error) {
         throw error;
     }
-}
+};
 
 export const fetchGoogleSheetData = async (spreadsheetID: string, spreadsheetRange: string): Promise<string[][]> => {
     try {
@@ -143,4 +135,4 @@ export const fetchGoogleSheetData = async (spreadsheetID: string, spreadsheetRan
     } catch (error) {
         throw new Error(`Error fetching data from Google Sheets: ${error}`);
     }
-}
+};
