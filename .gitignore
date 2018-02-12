@@ -1,4 +1,5 @@
 /node_modules
+/dist
 
 # Secret key for Google Sheets auth
 client_secret.json

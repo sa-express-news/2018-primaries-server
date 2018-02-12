@@ -61,12 +61,6 @@ const getNewToken = async (oauth2Client: any): Promise<any> => {
     });
 
     console.log('Authorize this app by visiting this url: ', authUrl);
-
-    // const rl = readline.createInterface({
-    //     input: process.stdin,
-    //     output: process.stdout
-    // });
-
     const code = readlineSync.question("Enter the code from that page here: ");
 
     try {
@@ -77,20 +71,6 @@ const getNewToken = async (oauth2Client: any): Promise<any> => {
     } catch (error) {
         console.log(`Error while trying to receive access token: ${error}`);
     }
-
-    // rl.question('Enter the code from that page here: ', function (code) {
-    //     rl.close();
-    //     oauth2Client.getToken(code, async function (err: Error, token: any) {
-    //         if (err) {
-    //             console.log('Error while trying to retrieve access token', err);
-    //             return;
-    //         }
-    //         oauth2Client.credentials = token;
-    //         await storeToken(token);
-    //         listMajors(oauth2Client);
-    //     });
-    // });
-
 }
 
 
@@ -131,41 +111,36 @@ const loadGoogleCredentials = async (): Promise<GoogleCredentials> => {
 }
 
 
-
-
 /**
  * Print the names and majors of students in a sample spreadsheet:
  * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
  */
 
-const fetchData = async (auth: any): Promise<object> => {
+const fetchData = async (auth: any, spreadsheetId: string, range: string): Promise<string[][]> => {
     const sheets = google.sheets('v4');
 
     const get = promisify(sheets.spreadsheets.values.get);
     try {
-        const data: object = await get({
-            auth: auth,
-            spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-            range: 'Class Data!A2:E',
+        const data: { values: string[][] } = await get({
+            auth,
+            spreadsheetId,
+            range
         });
 
-        return data;
+        return data.values;
     } catch (error) {
         throw error;
     }
 }
 
-const main = async (): Promise<void> => {
+export const fetchGoogleSheetData = async (spreadsheetID: string, spreadsheetRange: string): Promise<string[][]> => {
     try {
         const credentials = await loadGoogleCredentials();
         const oAuthClient = await authorize(credentials);
-        const data = await fetchData(oAuthClient);
-        console.log(data);
-
+        const data = await fetchData(oAuthClient, spreadsheetID, spreadsheetRange);
+        return data;
 
     } catch (error) {
-        console.log(`Error fetching data from Google Sheets: ${error}`);
+        throw new Error(`Error fetching data from Google Sheets: ${error}`);
     }
 }
-
-main();
