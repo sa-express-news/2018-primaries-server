@@ -14,7 +14,7 @@ const writeFile = promisify(fs.writeFile);
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 const TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + "/.credentials/";
-const TOKEN_PATH = TOKEN_DIR + "sheets.googleapis.com-nodejs-quickstart.json";
+const TOKEN_PATH = TOKEN_DIR + "2018-texas-primaries.json";
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -47,8 +47,6 @@ const authorize = async (credentials: GoogleCredentials): Promise<any> => {
  * execute the given callback with the authorized OAuth2 client.
  *
  * @param {google.auth.OAuth2} oauth2Client The OAuth2 client to get token for.
- * @param {getEventsCallback} callback The callback to call with the authorized
- *     client.
  */
 
 const getNewToken = async (oauth2Client: any): Promise<any> => {
@@ -61,10 +59,25 @@ const getNewToken = async (oauth2Client: any): Promise<any> => {
     const code = readlineSync.question("Enter the code from that page here: ");
 
     try {
-        const token = await oauth2Client.getToken(code);
+
+        // Google's API for fetching a token requires a promise wrap
+        const getTokenPromise = () => {
+            return new Promise((resolve, reject) => {
+                oauth2Client.getToken(code, (error: any, tokens: any, response: any) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(tokens);
+                    }
+                });
+            });
+        };
+
+        const token = await getTokenPromise();
         oauth2Client.credentials = token;
         await storeToken(token);
-        return token;
+        return oauth2Client;
+
     } catch (error) {
         console.log(`Error while trying to receive access token: ${error}`);
     }
@@ -124,6 +137,12 @@ const fetchData = async (auth: any, spreadsheetId: string, range: string): Promi
         throw error;
     }
 };
+
+/**
+ * Fetches all rows in a provided range for a given spreadsheet.
+ * @param {string} spreadsheetID The ID of a Google spreadsheet, which is the long string after "/d/" in the URL.
+ * @param {string} spreadsheetRange The range to pull from the spreadsheet, formatted as "{Sheet Name}!Row:Column"
+ */
 
 export const fetchGoogleSheetData = async (spreadsheetID: string, spreadsheetRange: string): Promise<string[][]> => {
     try {
