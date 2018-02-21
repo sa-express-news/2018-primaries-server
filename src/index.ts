@@ -1,9 +1,15 @@
+require("dotenv").config();
+
 import { fetchGoogleSheetData } from "./google-sheets";
 
 const main = async () => {
-    const spreadsheetData = await
-        fetchGoogleSheetData("1U2abauDTK8zTsoEqAV60TSNAyHGP8NGtmBDiObvSp24", "Election Data!A2:E");
-    console.log(spreadsheetData);
+    if (process.env.SPREADSHEET_ID) {
+        const spreadsheetData: string[][] = await
+            fetchGoogleSheetData(process.env.SPREADSHEET_ID, "Election Data!A2:E");
+        spreadsheetData[0].forEach((datum) => {
+            console.log(datum, typeof datum);
+        });
+    }
 };
 
 main();
