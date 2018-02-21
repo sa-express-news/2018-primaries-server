@@ -2,6 +2,7 @@
 import * as fs from "fs";
 import * as readlineSync from "readline-sync";
 import { promisify } from "util";
+import { Candidate } from "../types";
 const google = require("googleapis");
 const googleAuth = require("google-auth-library");
 import { GoogleCredentials } from "../types";
@@ -154,4 +155,24 @@ export const fetchGoogleSheetData = async (spreadsheetID: string, spreadsheetRan
     } catch (error) {
         throw new Error(`Error fetching data from Google Sheets: ${error}`);
     }
+};
+
+// Assumes array is structured like ['candidate', '#', 'candidate', '#']
+
+export const buildCandidates = (array: string[]): Candidate[] => {
+    const candidates: Candidate[] = [];
+    for (let i = 0; i < array.length - 1; i += 2) {
+        if (array[i].length > 0) {
+            const voteCount = parseInt(array[i + 1], 10);
+            const candidate: Candidate = {
+                name: array[i],
+                votes: isNaN(voteCount) ? 0 : voteCount,
+            };
+            candidates.push(candidate);
+        }
+
+    }
+
+    return candidates;
+
 };
