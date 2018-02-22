@@ -68,6 +68,86 @@ describe("Google Sheets", () => {
             });
         });
     });
+    describe("buildPrimaries", () => {
+        describe("Properly formatted data", () => {
+            const data = [
+                ["Bexar County DA", "TRUE", "John Smith", "100", "Jane Smith", "101"],
+                ["Bexar County DA", "FALSE", "Smith Jones", "102", "Smith Janes", "103"],
+                ["County Clerk", "TRUE", "Bob Luther", "104"],
+            ];
+
+            const primaries = gs.buildPrimaries(data);
+
+            it("returns an array", () => {
+                assert.isArray(primaries);
+            });
+            it("each item in the array is an object", () => {
+                primaries.forEach((primary) => {
+                    assert.isObject(primary);
+                });
+            });
+            it("each Primary object has a 'title' string property", () => {
+                primaries.forEach((primary) => {
+                    assert.property(primary, "title");
+                    assert.isString(primary.title);
+                });
+            });
+            it("each Primary object has an 'id' number property", () => {
+                primaries.forEach((primary) => {
+                    assert.property(primary, "id");
+                    assert.isNumber(primary.id);
+                });
+            });
+            it("each Primary object has a 'races' property, which is an array of Race objects", () => {
+                primaries.forEach((primary) => {
+                    assert.property(primary, "races");
+                    primary.races.forEach((race) => {
+                        assert.isObject(race);
+                        assert.property(race, "title");
+                        assert.isString(race.title);
+                        assert.property(race, "isRepublican");
+                        assert.isBoolean(race.isRepublican);
+                        assert.property(race, "candidates");
+                        assert.isArray(race.candidates);
+                    });
+                });
+            });
+        });
+    });
+    describe("isPrimaryRow", () => {
+        it("returns a boolean", () => {
+            const data = ["Bexar County DA", "TRUE", "John Smith", "100", "Jane Smith", "101"];
+
+            assert.isBoolean(gs.isPrimaryRow(data));
+        });
+        it("returns false if the array's length is < 4", () => {
+            const data = ["Bexar County DA", "TRUE", "John Smith"];
+
+            assert.isFalse(gs.isPrimaryRow(data));
+        });
+        it("returns false if any of the first four strings in the array are empty", () => {
+            const data = ["Bexar County DA", "TRUE", "John Smith", ""];
+
+            assert.isFalse(gs.isPrimaryRow(data));
+        });
+        it("returns false if the first item in the array is undefined or an empty string", () => {
+            const first: string[] = [];
+            const second = [""];
+
+            assert.isFalse(gs.isPrimaryRow(first));
+            assert.isFalse(gs.isPrimaryRow(second));
+        });
+        it("returns false if the second item is not the string 'true' or 'false', case not important", () => {
+            const data = ["Bexar County DA", "foo", "John Smith", "100", "Jane Smith", "101"];
+
+            assert.isFalse(gs.isPrimaryRow(data));
+        });
+        it("returns false if the fourth item in the array can't be converted to an integer", () => {
+            const data = ["Bexar County DA", "foo", "John Smith", "fark", "Jane Smith", "101"];
+            assert.isFalse(gs.isPrimaryRow(data));
+
+        });
+    });
     describe("getAllAtSubarrayIndex", () => {
         const data = [
             ["John Smith", 0, { foo: "bar" }],

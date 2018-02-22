@@ -2,7 +2,7 @@
 import * as fs from "fs";
 import * as readlineSync from "readline-sync";
 import { promisify } from "util";
-import { Candidate, Race } from "../types";
+import { Candidate, Primary, Race } from "../types";
 const google = require("googleapis");
 const googleAuth = require("google-auth-library");
 import { GoogleCredentials } from "../types";
@@ -157,6 +157,27 @@ export const fetchGoogleSheetData = async (spreadsheetID: string, spreadsheetRan
     }
 };
 
+// Construct an array of Primary data objects from an array of string arrays
+
+export const buildPrimaries = (data: string[][]): Primary[] => {
+    const primaries: Primary[] = [];
+
+    const uniqueRaceNames = new Set<string>(getAllAtSubarrayIndex(data, 0));
+
+    uniqueRaceNames.forEach((raceName: string) => {
+        const raceRows = data.filter((row: string[]) => row[0] === raceName);
+
+        const races: Race[] = raceRows.map((row) => buildRace(row));
+
+        primaries.push({
+            id: 0, // Hard coded - figure this out
+            races,
+            title: raceName,
+        });
+    });
+    return primaries;
+};
+
 // Construct a Race object from an array of strings formatted like so:
 // [race name, isRepublican, candidate, votes, candidate, votes, ... candidate, votes]
 
@@ -199,4 +220,30 @@ export const buildCandidates = (array: string[]): Candidate[] => {
 
     return candidates;
 
+};
+
+// Evaluates whether an array of strings matches the data structure we use in Google Sheets:
+// [race title, isRepublican, candidate, votes, candidate, votes, ... candidate, votes]
+// Stops evaluating after the first candidate - vote pair, because the candidate-building function
+// will omit garbage data if necessary.
+
+export const isPrimaryRow = (array: string[]): boolean => {
+    if (array.length < 4) {
+        return false;
+    } else if (array[0].length === 0 || array[1].length === 0 || array[2].length === 0 || array[3].length === 0) {
+        return false;
+    }
+
+    let isPrimary = true;
+
+    if (!array[0] || array[0] === "") {
+        isPrimary = false;
+    }
+    const secondItem = array[1].toLowerCase();
+
+    if (secondItem !== "true" && secondItem !== "false") {
+        isPrimary = false;
+    }
+
+    return isPrimary;
 };
