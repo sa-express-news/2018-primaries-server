@@ -20,8 +20,8 @@ export interface Race {
     isRepublican: boolean;
     title: string;
     candidates: Candidate[];
-    source: string;
-    source_url: string;
+    source?: string;
+    source_url?: string;
 }
 
 export interface Candidate {
