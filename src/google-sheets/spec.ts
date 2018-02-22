@@ -1,4 +1,5 @@
 import { assert } from "chai";
+import { Candidate } from "../types";
 import * as gs from "./index";
 
 describe("Google Sheets", () => {
@@ -40,6 +41,30 @@ describe("Google Sheets", () => {
                 assert.lengthOf(candidates, 1);
                 assert.strictEqual(candidates[0].name, "John Smith");
                 assert.strictEqual(candidates[0].votes, 500);
+            });
+        });
+    });
+    describe("buildRace", () => {
+        const data = ["Bexar County DA", "FALSE", "Jane Smith", "500", "John Smith", "200"];
+        const race = gs.buildRace(data);
+        it("returns an object", () => {
+            assert.isObject(race);
+        });
+        it("the object has a 'title' string property", () => {
+            assert.property(race, "title");
+            assert.isString(race.title);
+        });
+        it("the object has an 'isRepublican' boolean property", () => {
+            assert.property(race, "isRepublican");
+            assert.isBoolean(race.isRepublican);
+        });
+        it("the object has a 'candidates' property, which is an array of Candidate objects", () => {
+            assert.property(race, "candidates");
+            race.candidates.forEach((candidate: Candidate) => {
+                assert.property(candidate, "name");
+                assert.isString(candidate.name);
+                assert.property(candidate, "votes");
+                assert.isNumber(candidate.votes);
             });
         });
     });

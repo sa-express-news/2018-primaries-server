@@ -2,7 +2,7 @@
 import * as fs from "fs";
 import * as readlineSync from "readline-sync";
 import { promisify } from "util";
-import { Candidate } from "../types";
+import { Candidate, Race } from "../types";
 const google = require("googleapis");
 const googleAuth = require("google-auth-library");
 import { GoogleCredentials } from "../types";
@@ -157,6 +157,17 @@ export const fetchGoogleSheetData = async (spreadsheetID: string, spreadsheetRan
     }
 };
 
+// Construct a Race object from an array of strings formatted like so:
+// [race name, isRepublican, candidate, votes, candidate, votes, ... candidate, votes]
+
+export const buildRace = (array: string[]): Race => {
+    return {
+        candidates: buildCandidates(array.slice(2)),
+        isRepublican: array[1].toLowerCase() === "true",
+        title: array[0],
+    };
+};
+
 // Given an array of arrays, get the (i)th element of every subarray.
 
 export const getAllAtSubarrayIndex = (arrays: any[][], index: number): any[] => {
@@ -168,7 +179,7 @@ export const getAllAtSubarrayIndex = (arrays: any[][], index: number): any[] => 
     });
 
     return itemsAtI;
-}
+};
 
 // Assumes array is structured like ['candidate', '#', 'candidate', '#']
 
