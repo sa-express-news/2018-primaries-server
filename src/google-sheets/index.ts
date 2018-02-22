@@ -157,6 +157,19 @@ export const fetchGoogleSheetData = async (spreadsheetID: string, spreadsheetRan
     }
 };
 
+// Given an array of arrays, get the (i)th element of every subarray.
+
+export const getAllAtSubarrayIndex = (arrays: any[][], index: number): any[] => {
+    const itemsAtI: any[] = [];
+    arrays.forEach((array: any[]) => {
+        if (array.length - 1 >= index) {
+            itemsAtI.push(array[index]);
+        }
+    });
+
+    return itemsAtI;
+}
+
 // Assumes array is structured like ['candidate', '#', 'candidate', '#']
 
 export const buildCandidates = (array: string[]): Candidate[] => {
