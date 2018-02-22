@@ -1,3 +1,34 @@
+export interface AssociatedPressAPIResponse {
+    electionDate: string;
+    timestamp: string;
+    races: APRace[];
+    nextrequest: string;
+}
+
+export interface APRace {
+    raceID: string; // parse to number
+    statePostal: string;
+    raceTypeID: string;
+    officeID: string;
+    officeName: string;
+    party: string;
+    numRunoff: number;
+    national: boolean;
+    lastUpdated: string; // parse to Date
+    candidates: APCandidate[];
+}
+
+export interface APCandidate {
+    first: string;
+    last: string;
+    party: string;
+    candidateID: string; // parse to number
+    polID: string; // parse to number
+    ballotOrder: number;
+    polNum: string; // parse to number
+
+}
+
 export interface GoogleCredentials {
     installed: {
         client_id: string;
