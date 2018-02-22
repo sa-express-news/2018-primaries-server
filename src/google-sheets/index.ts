@@ -165,7 +165,7 @@ export const buildPrimaries = (data: string[][]): Primary[] => {
     const uniqueRaceNames = new Set<string>(getAllAtSubarrayIndex(data, 0));
 
     uniqueRaceNames.forEach((raceName: string) => {
-        const raceRows = data.filter((row: string[]) => row[0] === raceName);
+        const raceRows = data.filter((row: string[]) => row[0] === raceName && isPrimaryRow(row));
 
         const races: Race[] = raceRows.map((row) => buildRace(row));
 

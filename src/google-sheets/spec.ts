@@ -69,7 +69,7 @@ describe("Google Sheets", () => {
         });
     });
     describe("buildPrimaries", () => {
-        describe("Properly formatted data", () => {
+        describe("Correctly formatted data", () => {
             const data = [
                 ["Bexar County DA", "TRUE", "John Smith", "100", "Jane Smith", "101"],
                 ["Bexar County DA", "FALSE", "Smith Jones", "102", "Smith Janes", "103"],
@@ -111,6 +111,17 @@ describe("Google Sheets", () => {
                         assert.isArray(race.candidates);
                     });
                 });
+            });
+        });
+        describe("Incorrectly formatted data", () => {
+            const badData = [
+                ["Bexar County DA", "TRUE", "John Smith", "100", "Jane Smith", "101"],
+                ["Bexar County DA", "FALSE", "Smith Jones", "102", "Smith Janes", "103"],
+                ["County Clerk", "TRUE", "Bob Luther", "104"],
+                ["Foobar", "trust", "", "jinkies"],
+            ];
+            it("any rows that can't be converted into primaries are ignored", () => {
+                assert.lengthOf(gs.buildPrimaries(badData), 3);
             });
         });
     });
