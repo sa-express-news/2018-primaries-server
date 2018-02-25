@@ -26,7 +26,8 @@ export interface APCandidate {
     polID: string; // parse to number
     ballotOrder: number;
     polNum: string; // parse to number
-
+    voteCount?: number;
+    winner?: "X";
 }
 
 export interface GoogleCredentials {
