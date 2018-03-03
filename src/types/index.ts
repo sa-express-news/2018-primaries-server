@@ -7,14 +7,25 @@ export interface AssociatedPressAPIResponse {
 
 export interface APRace {
     raceID: string; // parse to number
-    statePostal: string;
+    raceType: string;
     raceTypeID: string;
-    officeID: string;
+    officeID: string; // parse to number
     officeName: string;
     party: string;
-    numRunoff: number;
-    national: boolean;
+    numRunoff?: number;
+    national?: boolean;
+    uncontested?: boolean;
+    reportingUnits: APReportingUnit[];
+}
+
+export interface APReportingUnit {
+    statePostal: string;
+    stateName: string;
+    level: string;
     lastUpdated: string; // parse to Date
+    precinctsReporting: number;
+    precinctsTotal: number;
+    precinctsReportingPct: number;
     candidates: APCandidate[];
 }
 
@@ -62,4 +73,5 @@ export interface Candidate {
     votes: number;
     incumbent?: boolean;
     winner?: boolean;
+    runoff?: boolean;
 }
