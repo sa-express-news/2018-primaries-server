@@ -27,7 +27,7 @@ export interface APCandidate {
     ballotOrder: number;
     polNum: string; // parse to number
     voteCount?: number;
-    winner?: "X";
+    winner?: string;
     incumbent?: boolean;
 }
 
