@@ -28,6 +28,7 @@ export interface APCandidate {
     polNum: string; // parse to number
     voteCount?: number;
     winner?: "X";
+    incumbent?: boolean;
 }
 
 export interface GoogleCredentials {
@@ -59,4 +60,6 @@ export interface Race {
 export interface Candidate {
     name: string;
     votes: number;
+    incumbent?: boolean;
+    winner?: boolean;
 }
