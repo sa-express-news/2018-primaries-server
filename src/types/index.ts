@@ -11,6 +11,7 @@ export interface APRace {
     raceTypeID: string;
     officeID: string; // parse to number
     officeName: string;
+    seatName?: string;
     party: string;
     numRunoff?: number;
     national?: boolean;
@@ -64,6 +65,7 @@ export interface Race {
     isRepublican: boolean;
     title: string;
     candidates: Candidate[];
+    percentPrecinctsReporting?: number;
     source?: string;
     source_url?: string;
 }
