@@ -15,7 +15,7 @@ export const fetchAPData = async (APIUrl: string): Promise<APData> => {
         const apiResponse: AssociatedPressAPIResponse = await fetchJSON(APIUrl);
         return {
             primaries: extractPrimariesFromAP(apiResponse.races),
-            nextURL: `${apiResponse.nextrequest}?apikey=${process.env.AP_KEY as string}`,
+            nextURL: `${apiResponse.nextrequest}&apikey=${process.env.AP_KEY as string}`,
         };
     } catch (error) {
         throw error;

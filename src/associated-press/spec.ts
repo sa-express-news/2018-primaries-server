@@ -37,7 +37,7 @@ describe("Associated Press", () => {
                 assert.isString(data.nextURL);
             });
             it("the 'nextURL' property = value returned from API + our API key param", () => {
-                const expectedString = `${mockAPResponse.nextrequest}?apikey=${process.env.AP_KEY as string}`;
+                const expectedString = `${mockAPResponse.nextrequest}&apikey=${process.env.AP_KEY as string}`;
                 assert.strictEqual(data.nextURL, expectedString);
             });
             it("the object has a 'primaries' property, which is an array of objects", () => {
