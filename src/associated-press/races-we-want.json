@@ -1,0 +1,1188 @@
+{
+    "electionDate": "2018-03-06",
+    "timestamp": "2018-03-05T17:29:05.062Z",
+    "races": [
+        {
+            "test": true,
+            "raceID": "44015",
+            "raceType": "Primary",
+            "raceTypeID": "D",
+            "officeID": "0",
+            "officeName": "Land Commissioner",
+            "party": "Dem",
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:12:00.063Z",
+                    "precinctsReporting": 7797,
+                    "precinctsTotal": 7797,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Miguel",
+                            "last": "Suazo",
+                            "party": "Dem",
+                            "candidateID": "60924",
+                            "polID": "0",
+                            "ballotOrder": 2,
+                            "polNum": "51984",
+                            "voteCount": 545096,
+                            "winner": "X"
+                        },
+                        {
+                            "first": "Tex",
+                            "last": "Morgan",
+                            "party": "Dem",
+                            "candidateID": "61159",
+                            "polID": "0",
+                            "ballotOrder": 1,
+                            "polNum": "52179",
+                            "voteCount": 445989
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "44016",
+            "raceType": "Primary",
+            "raceTypeID": "D",
+            "officeID": "0",
+            "officeName": "Agriculture Commissioner",
+            "party": "Dem",
+            "uncontested": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T18:32:15.460Z",
+                    "precinctsReporting": 0,
+                    "precinctsTotal": 0,
+                    "precinctsReportingPct": 0.0,
+                    "candidates": [
+                        {
+                            "first": "Kim",
+                            "last": "Olson",
+                            "party": "Dem",
+                            "candidateID": "60898",
+                            "polID": "0",
+                            "ballotOrder": 1,
+                            "polNum": "51933",
+                            "voteCount": 0,
+                            "winner": "X"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "48650",
+            "raceType": "Primary",
+            "raceTypeID": "R",
+            "officeID": "0",
+            "officeName": "Agriculture Commissioner",
+            "party": "GOP",
+            "numRunoff": 2,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:02:54.243Z",
+                    "precinctsReporting": 7763,
+                    "precinctsTotal": 7763,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Sid",
+                            "last": "Miller",
+                            "party": "GOP",
+                            "incumbent": true,
+                            "candidateID": "60709",
+                            "polID": "58341",
+                            "ballotOrder": 3,
+                            "polNum": "48263",
+                            "voteCount": 445903,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Trey",
+                            "last": "Blocker",
+                            "party": "GOP",
+                            "candidateID": "61275",
+                            "polID": "0",
+                            "ballotOrder": 1,
+                            "polNum": "52267",
+                            "voteCount": 396359,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Jim",
+                            "last": "Hogan",
+                            "party": "GOP",
+                            "candidateID": "61411",
+                            "polID": "0",
+                            "ballotOrder": 2,
+                            "polNum": "51172",
+                            "voteCount": 148635
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "48652",
+            "raceType": "Primary",
+            "raceTypeID": "R",
+            "officeID": "0",
+            "officeName": "Land Commissioner",
+            "party": "GOP",
+            "numRunoff": 2,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:02:54.243Z",
+                    "precinctsReporting": 7763,
+                    "precinctsTotal": 7763,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "George P.",
+                            "last": "Bush",
+                            "party": "GOP",
+                            "incumbent": true,
+                            "candidateID": "60711",
+                            "polID": "0",
+                            "ballotOrder": 1,
+                            "polNum": "51170",
+                            "voteCount": 439562,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Jerry",
+                            "last": "Patterson",
+                            "abbrv": "Pattersn",
+                            "party": "GOP",
+                            "candidateID": "61274",
+                            "polID": "43042",
+                            "ballotOrder": 3,
+                            "polNum": "42099",
+                            "voteCount": 396358,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Rick",
+                            "last": "Range",
+                            "party": "GOP",
+                            "candidateID": "60837",
+                            "polID": "0",
+                            "ballotOrder": 4,
+                            "polNum": "51934",
+                            "voteCount": 79767
+                        },
+                        {
+                            "first": "Davey",
+                            "last": "Edwards",
+                            "party": "GOP",
+                            "candidateID": "60838",
+                            "polID": "0",
+                            "ballotOrder": 2,
+                            "polNum": "51941",
+                            "voteCount": 75210
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "44010",
+            "raceType": "Primary",
+            "raceTypeID": "D",
+            "officeID": "G",
+            "officeName": "Governor",
+            "party": "Dem",
+            "numRunoff": 2,
+            "national": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:02:54.243Z",
+                    "precinctsReporting": 7797,
+                    "precinctsTotal": 7797,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Jeffrey",
+                            "last": "Payne",
+                            "party": "Dem",
+                            "candidateID": "60834",
+                            "polID": "66009",
+                            "ballotOrder": 5,
+                            "polNum": "51928",
+                            "voteCount": 317147,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Lupe",
+                            "last": "Valdez",
+                            "party": "Dem",
+                            "candidateID": "60831",
+                            "polID": "66011",
+                            "ballotOrder": 6,
+                            "polNum": "51930",
+                            "voteCount": 247771,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Grady",
+                            "last": "Yarbrough",
+                            "abbrv": "Yarbrgh",
+                            "party": "Dem",
+                            "candidateID": "60922",
+                            "polID": "61811",
+                            "ballotOrder": 9,
+                            "polNum": "50909",
+                            "voteCount": 178395
+                        },
+                        {
+                            "first": "Andrew",
+                            "last": "White",
+                            "party": "Dem",
+                            "candidateID": "60963",
+                            "polID": "66012",
+                            "ballotOrder": 8,
+                            "polNum": "52014",
+                            "voteCount": 99108
+                        },
+                        {
+                            "first": "Adrian",
+                            "last": "Ocegueda",
+                            "party": "Dem",
+                            "candidateID": "60829",
+                            "polID": "66008",
+                            "ballotOrder": 4,
+                            "polNum": "51927",
+                            "voteCount": 49555
+                        },
+                        {
+                            "first": "Joe",
+                            "last": "Mumbach",
+                            "party": "Dem",
+                            "candidateID": "60833",
+                            "polID": "66010",
+                            "ballotOrder": 3,
+                            "polNum": "51929",
+                            "voteCount": 39644
+                        },
+                        {
+                            "first": "Tom",
+                            "last": "Wakely",
+                            "party": "Dem",
+                            "candidateID": "60832",
+                            "polID": "64629",
+                            "ballotOrder": 7,
+                            "polNum": "51619",
+                            "voteCount": 29732
+                        },
+                        {
+                            "first": "Cedric",
+                            "last": "Davis",
+                            "party": "Dem",
+                            "candidateID": "60830",
+                            "polID": "66006",
+                            "ballotOrder": 2,
+                            "polNum": "50745",
+                            "voteCount": 19822
+                        },
+                        {
+                            "first": "James",
+                            "last": "Clark",
+                            "party": "Dem",
+                            "candidateID": "61157",
+                            "polID": "66013",
+                            "ballotOrder": 1,
+                            "polNum": "52177",
+                            "voteCount": 9911
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "48466",
+            "raceType": "Primary",
+            "raceTypeID": "R",
+            "officeID": "G",
+            "officeName": "Governor",
+            "party": "GOP",
+            "numRunoff": 2,
+            "national": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:02:54.243Z",
+                    "precinctsReporting": 7735,
+                    "precinctsTotal": 7735,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Greg",
+                            "last": "Abbott",
+                            "party": "GOP",
+                            "incumbent": true,
+                            "candidateID": "60611",
+                            "polID": "41404",
+                            "ballotOrder": 1,
+                            "polNum": "47499",
+                            "voteCount": 366667,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Barbara",
+                            "last": "Krueger",
+                            "party": "GOP",
+                            "candidateID": "61273",
+                            "polID": "66077",
+                            "ballotOrder": 3,
+                            "polNum": "52266",
+                            "voteCount": 336936,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "S.",
+                            "last": "Kilgore",
+                            "party": "GOP",
+                            "candidateID": "60835",
+                            "polID": "57793",
+                            "ballotOrder": 2,
+                            "polNum": "51165",
+                            "voteCount": 287387
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "44175",
+            "raceType": "Primary",
+            "raceTypeID": "D",
+            "officeID": "H",
+            "officeName": "U.S. House",
+            "description": "S Centrl, S Antonio subs",
+            "party": "Dem",
+            "seatName": "District 21",
+            "seatNum": "21",
+            "numRunoff": 2,
+            "national": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:02:54.243Z",
+                    "precinctsReporting": 472,
+                    "precinctsTotal": 472,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Mary",
+                            "last": "Wilson",
+                            "party": "Dem",
+                            "candidateID": "60782",
+                            "polID": "66020",
+                            "ballotOrder": 4,
+                            "polNum": "51898",
+                            "voteCount": 13132,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Elliott",
+                            "last": "McFadden",
+                            "party": "Dem",
+                            "candidateID": "61135",
+                            "polID": "65961",
+                            "ballotOrder": 3,
+                            "polNum": "52160",
+                            "voteCount": 11684,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Derrick",
+                            "last": "Crowe",
+                            "party": "Dem",
+                            "candidateID": "60918",
+                            "polID": "65960",
+                            "ballotOrder": 1,
+                            "polNum": "51981",
+                            "voteCount": 2405
+                        },
+                        {
+                            "first": "Joseph",
+                            "last": "Kopser",
+                            "party": "Dem",
+                            "candidateID": "60783",
+                            "polID": "65959",
+                            "ballotOrder": 2,
+                            "polNum": "51897",
+                            "voteCount": 2284
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "44177",
+            "raceType": "Primary",
+            "raceTypeID": "D",
+            "officeID": "H",
+            "officeName": "U.S. House",
+            "description": "West Texas",
+            "party": "Dem",
+            "seatName": "District 23",
+            "seatNum": "23",
+            "numRunoff": 2,
+            "national": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:02:54.243Z",
+                    "precinctsReporting": 348,
+                    "precinctsTotal": 348,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Judy",
+                            "last": "Canales",
+                            "party": "Dem",
+                            "candidateID": "61140",
+                            "polID": "41733",
+                            "ballotOrder": 1,
+                            "polNum": "52166",
+                            "voteCount": 11399,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Jay",
+                            "last": "Hulings",
+                            "party": "Dem",
+                            "candidateID": "60907",
+                            "polID": "65975",
+                            "ballotOrder": 2,
+                            "polNum": "51973",
+                            "voteCount": 10340,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Rick",
+                            "last": "Trevino",
+                            "party": "Dem",
+                            "candidateID": "61141",
+                            "polID": "66025",
+                            "ballotOrder": 4,
+                            "polNum": "52167",
+                            "voteCount": 1483
+                        },
+                        {
+                            "first": "Gina",
+                            "last": "Jones",
+                            "party": "Dem",
+                            "candidateID": "60962",
+                            "polID": "66024",
+                            "ballotOrder": 3,
+                            "polNum": "52013",
+                            "voteCount": 1316
+                        },
+                        {
+                            "first": "Angie",
+                            "last": "Villescaz",
+                            "abbrv": "Villescz",
+                            "party": "Dem",
+                            "candidateID": "61142",
+                            "polID": "65976",
+                            "ballotOrder": 5,
+                            "polNum": "52165",
+                            "voteCount": 1310
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "48456",
+            "raceType": "Primary",
+            "raceTypeID": "R",
+            "officeID": "H",
+            "officeName": "U.S. House",
+            "description": "S Centrl, S Antonio subs",
+            "party": "GOP",
+            "seatName": "District 21",
+            "seatNum": "21",
+            "numRunoff": 2,
+            "national": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:02:54.243Z",
+                    "precinctsReporting": 480,
+                    "precinctsTotal": 480,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Autry",
+                            "last": "Pruitt",
+                            "party": "GOP",
+                            "candidateID": "61328",
+                            "polID": "66071",
+                            "ballotOrder": 12,
+                            "polNum": "52309",
+                            "voteCount": 12478,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Anthony",
+                            "last": "White",
+                            "party": "GOP",
+                            "candidateID": "61329",
+                            "polID": "66081",
+                            "ballotOrder": 18,
+                            "polNum": "52311",
+                            "voteCount": 11078,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Samuel",
+                            "last": "Temple",
+                            "party": "GOP",
+                            "candidateID": "60788",
+                            "polID": "65966",
+                            "ballotOrder": 16,
+                            "polNum": "51899",
+                            "voteCount": 527
+                        },
+                        {
+                            "first": "Matt",
+                            "last": "McCall",
+                            "party": "GOP",
+                            "candidateID": "60789",
+                            "polID": "63186",
+                            "ballotOrder": 8,
+                            "polNum": "51252",
+                            "voteCount": 496
+                        },
+                        {
+                            "first": "Jason",
+                            "last": "Isaac",
+                            "party": "GOP",
+                            "candidateID": "60785",
+                            "polID": "65962",
+                            "ballotOrder": 6,
+                            "polNum": "50101",
+                            "voteCount": 478
+                        },
+                        {
+                            "first": "Robert",
+                            "last": "Stovall",
+                            "party": "GOP",
+                            "candidateID": "60909",
+                            "polID": "66021",
+                            "ballotOrder": 15,
+                            "polNum": "51975",
+                            "voteCount": 439
+                        },
+                        {
+                            "first": "Quico",
+                            "last": "Canseco",
+                            "party": "GOP",
+                            "candidateID": "61326",
+                            "polID": "40801",
+                            "ballotOrder": 3,
+                            "polNum": "50253",
+                            "voteCount": 404
+                        },
+                        {
+                            "first": "Al",
+                            "last": "Poteet",
+                            "party": "GOP",
+                            "candidateID": "60787",
+                            "polID": "65963",
+                            "ballotOrder": 11,
+                            "polNum": "51894",
+                            "voteCount": 400
+                        },
+                        {
+                            "first": "Eric",
+                            "last": "Burkhart",
+                            "party": "GOP",
+                            "candidateID": "60784",
+                            "polID": "65964",
+                            "ballotOrder": 2,
+                            "polNum": "51895",
+                            "voteCount": 392
+                        },
+                        {
+                            "first": "Jenifer",
+                            "last": "Sarver",
+                            "party": "GOP",
+                            "candidateID": "61264",
+                            "polID": "66069",
+                            "ballotOrder": 14,
+                            "polNum": "52258",
+                            "voteCount": 388
+                        },
+                        {
+                            "first": "Chip",
+                            "last": "Roy",
+                            "party": "GOP",
+                            "candidateID": "61330",
+                            "polID": "66080",
+                            "ballotOrder": 13,
+                            "polNum": "52310",
+                            "voteCount": 385
+                        },
+                        {
+                            "first": "Ryan",
+                            "last": "Krause",
+                            "party": "GOP",
+                            "candidateID": "61327",
+                            "polID": "66070",
+                            "ballotOrder": 7,
+                            "polNum": "52308",
+                            "voteCount": 325
+                        },
+                        {
+                            "first": "William",
+                            "last": "Negley",
+                            "party": "GOP",
+                            "candidateID": "60791",
+                            "polID": "65967",
+                            "ballotOrder": 10,
+                            "polNum": "51900",
+                            "voteCount": 309
+                        },
+                        {
+                            "first": "Ivan",
+                            "last": "Andarza",
+                            "party": "GOP",
+                            "candidateID": "60790",
+                            "polID": "65965",
+                            "ballotOrder": 1,
+                            "polNum": "51896",
+                            "voteCount": 307
+                        },
+                        {
+                            "first": "Peggy",
+                            "last": "Wardlaw",
+                            "party": "GOP",
+                            "candidateID": "61136",
+                            "polID": "65970",
+                            "ballotOrder": 17,
+                            "polNum": "52162",
+                            "voteCount": 276
+                        },
+                        {
+                            "first": "Foster",
+                            "last": "Hagen",
+                            "party": "GOP",
+                            "candidateID": "61112",
+                            "polID": "65968",
+                            "ballotOrder": 5,
+                            "polNum": "52142",
+                            "voteCount": 266
+                        },
+                        {
+                            "first": "Mauro",
+                            "last": "Garza",
+                            "party": "GOP",
+                            "candidateID": "61137",
+                            "polID": "65969",
+                            "ballotOrder": 4,
+                            "polNum": "52161",
+                            "voteCount": 260
+                        },
+                        {
+                            "first": "Susan",
+                            "last": "Narvaiz",
+                            "party": "GOP",
+                            "candidateID": "60786",
+                            "polID": "62012",
+                            "ballotOrder": 9,
+                            "polNum": "50613",
+                            "voteCount": 257
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "48458",
+            "raceType": "Primary",
+            "raceTypeID": "R",
+            "officeID": "H",
+            "officeName": "U.S. House",
+            "description": "West Texas",
+            "party": "GOP",
+            "seatName": "District 23",
+            "seatNum": "23",
+            "national": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:12:02.583Z",
+                    "precinctsReporting": 311,
+                    "precinctsTotal": 311,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Will",
+                            "last": "Hurd",
+                            "party": "GOP",
+                            "incumbent": true,
+                            "candidateID": "60606",
+                            "polID": "61403",
+                            "ballotOrder": 2,
+                            "polNum": "51198",
+                            "voteCount": 14180,
+                            "winner": "X"
+                        },
+                        {
+                            "first": "Alma",
+                            "last": "Arredondo-Lynch",
+                            "abbrv": "Arrdnd-",
+                            "party": "GOP",
+                            "candidateID": "60797",
+                            "polID": "66026",
+                            "ballotOrder": 1,
+                            "polNum": "51904",
+                            "voteCount": 11603
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "49394",
+            "raceType": "Primary",
+            "raceTypeID": "D",
+            "officeID": "H",
+            "officeName": "U.S. House",
+            "description": "parts Austin/San Antonio",
+            "party": "Dem",
+            "seatName": "District 35",
+            "seatNum": "35",
+            "uncontested": true,
+            "national": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T18:32:15.460Z",
+                    "precinctsReporting": 0,
+                    "precinctsTotal": 0,
+                    "precinctsReportingPct": 0.0,
+                    "candidates": [
+                        {
+                            "first": "Lloyd",
+                            "last": "Doggett",
+                            "party": "Dem",
+                            "incumbent": true,
+                            "candidateID": "60732",
+                            "polID": "292",
+                            "ballotOrder": 1,
+                            "polNum": "47086",
+                            "voteCount": 0,
+                            "winner": "X"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "49395",
+            "raceType": "Primary",
+            "raceTypeID": "R",
+            "officeID": "H",
+            "officeName": "U.S. House",
+            "description": "parts Austin/San Antonio",
+            "party": "GOP",
+            "seatName": "District 35",
+            "seatNum": "35",
+            "national": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:12:04.557Z",
+                    "precinctsReporting": 476,
+                    "precinctsTotal": 476,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "David",
+                            "last": "Smalling",
+                            "party": "GOP",
+                            "candidateID": "60826",
+                            "polID": "65930",
+                            "ballotOrder": 2,
+                            "polNum": "51924",
+                            "voteCount": 15117,
+                            "winner": "X"
+                        },
+                        {
+                            "first": "Sherrill",
+                            "last": "Alexander",
+                            "abbrv": "Alexandr",
+                            "party": "GOP",
+                            "candidateID": "61272",
+                            "polID": "66076",
+                            "ballotOrder": 1,
+                            "polNum": "52265",
+                            "voteCount": 12369
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "44011",
+            "raceType": "Primary",
+            "raceTypeID": "D",
+            "officeID": "L",
+            "officeName": "Lieutenant Governor",
+            "party": "Dem",
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:11:59.88Z",
+                    "precinctsReporting": 7797,
+                    "precinctsTotal": 7797,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Michael",
+                            "last": "Cooper",
+                            "party": "Dem",
+                            "candidateID": "60896",
+                            "polID": "0",
+                            "ballotOrder": 2,
+                            "polNum": "51931",
+                            "voteCount": 545096,
+                            "winner": "X"
+                        },
+                        {
+                            "first": "Mike",
+                            "last": "Collier",
+                            "party": "Dem",
+                            "candidateID": "60895",
+                            "polID": "0",
+                            "ballotOrder": 1,
+                            "polNum": "51167",
+                            "voteCount": 445989
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "48468",
+            "raceType": "Primary",
+            "raceTypeID": "R",
+            "officeID": "L",
+            "officeName": "Lieutenant Governor",
+            "party": "GOP",
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:11:52.983Z",
+                    "precinctsReporting": 7763,
+                    "precinctsTotal": 7763,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Dan",
+                            "last": "Patrick",
+                            "party": "GOP",
+                            "incumbent": true,
+                            "candidateID": "60612",
+                            "polID": "64382",
+                            "ballotOrder": 2,
+                            "polNum": "49487",
+                            "voteCount": 544993,
+                            "winner": "X"
+                        },
+                        {
+                            "first": "Scott",
+                            "last": "Milder",
+                            "party": "GOP",
+                            "candidateID": "61111",
+                            "polID": "0",
+                            "ballotOrder": 1,
+                            "polNum": "52141",
+                            "voteCount": 445904
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "44017",
+            "raceType": "Primary",
+            "raceTypeID": "D",
+            "officeID": "R",
+            "officeName": "Railroad Commissioner",
+            "party": "Dem",
+            "seatName": "Term Exp 2018",
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:12:05.68Z",
+                    "precinctsReporting": 7797,
+                    "precinctsTotal": 7797,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Roman",
+                            "last": "McAllen",
+                            "party": "Dem",
+                            "candidateID": "60899",
+                            "polID": "0",
+                            "ballotOrder": 1,
+                            "polNum": "51935",
+                            "voteCount": 545097,
+                            "winner": "X"
+                        },
+                        {
+                            "first": "Chris",
+                            "last": "Spellmon",
+                            "party": "Dem",
+                            "candidateID": "61160",
+                            "polID": "0",
+                            "ballotOrder": 2,
+                            "polNum": "52180",
+                            "voteCount": 445988
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "49050",
+            "raceType": "Primary",
+            "raceTypeID": "R",
+            "officeID": "R",
+            "officeName": "Railroad Commissioner",
+            "party": "GOP",
+            "seatName": "Term Exp 2018",
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:11:55.133Z",
+                    "precinctsReporting": 7763,
+                    "precinctsTotal": 7763,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Christi",
+                            "last": "Craddick",
+                            "party": "GOP",
+                            "incumbent": true,
+                            "candidateID": "60729",
+                            "polID": "0",
+                            "ballotOrder": 1,
+                            "polNum": "50670",
+                            "voteCount": 544994,
+                            "winner": "X"
+                        },
+                        {
+                            "first": "Weston",
+                            "last": "Martinez",
+                            "party": "GOP",
+                            "candidateID": "61276",
+                            "polID": "0",
+                            "ballotOrder": 2,
+                            "polNum": "51779",
+                            "voteCount": 445903
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "48428",
+            "raceType": "Primary",
+            "raceTypeID": "D",
+            "officeID": "S",
+            "officeName": "U.S. Senate",
+            "party": "Dem",
+            "numRunoff": 2,
+            "national": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:02:54.243Z",
+                    "precinctsReporting": 7797,
+                    "precinctsTotal": 7797,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Beto",
+                            "last": "O'Rourke",
+                            "abbrv": "ORourke",
+                            "party": "Dem",
+                            "candidateID": "60734",
+                            "polID": "61921",
+                            "ballotOrder": 3,
+                            "polNum": "50634",
+                            "voteCount": 396434,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Sema",
+                            "last": "Hernandez",
+                            "abbrv": "Hernandz",
+                            "party": "Dem",
+                            "candidateID": "61113",
+                            "polID": "65932",
+                            "ballotOrder": 1,
+                            "polNum": "52143",
+                            "voteCount": 307237,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Edward",
+                            "last": "Kimbrough",
+                            "abbrv": "Kimbrogh",
+                            "party": "Dem",
+                            "candidateID": "60836",
+                            "polID": "65931",
+                            "ballotOrder": 2,
+                            "polNum": "51940",
+                            "voteCount": 287414
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "test": true,
+            "raceID": "49021",
+            "raceType": "Primary",
+            "raceTypeID": "R",
+            "officeID": "S",
+            "officeName": "U.S. Senate",
+            "party": "GOP",
+            "numRunoff": 2,
+            "national": true,
+            "reportingUnits": [
+                {
+                    "statePostal": "TX",
+                    "stateName": "Texas",
+                    "level": "state",
+                    "lastUpdated": "2018-03-02T19:02:54.243Z",
+                    "precinctsReporting": 7735,
+                    "precinctsTotal": 7735,
+                    "precinctsReportingPct": 100.0,
+                    "candidates": [
+                        {
+                            "first": "Ted",
+                            "last": "Cruz",
+                            "party": "GOP",
+                            "incumbent": true,
+                            "candidateID": "60728",
+                            "polID": "61815",
+                            "ballotOrder": 1,
+                            "polNum": "50562",
+                            "voteCount": 439511,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Stefano",
+                            "last": "de Stefano",
+                            "abbrv": "deStefan",
+                            "party": "GOP",
+                            "candidateID": "61242",
+                            "polID": "66052",
+                            "ballotOrder": 2,
+                            "polNum": "52242",
+                            "voteCount": 253652,
+                            "winner": "R"
+                        },
+                        {
+                            "first": "Mary",
+                            "last": "Miller",
+                            "party": "GOP",
+                            "candidateID": "60735",
+                            "polID": "65926",
+                            "ballotOrder": 4,
+                            "polNum": "51861",
+                            "voteCount": 156759
+                        },
+                        {
+                            "first": "Geraldine",
+                            "last": "Sam",
+                            "party": "GOP",
+                            "candidateID": "60736",
+                            "polID": "43274",
+                            "ballotOrder": 5,
+                            "polNum": "51860",
+                            "voteCount": 119942
+                        },
+                        {
+                            "first": "Bruce",
+                            "last": "Jacobson",
+                            "party": "GOP",
+                            "candidateID": "61241",
+                            "polID": "66051",
+                            "ballotOrder": 3,
+                            "polNum": "52241",
+                            "voteCount": 73112
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "nextrequest": "https://api.ap.org/v2/elections/2018-03-06?format=JSON&raceID=44010%2c44011%2c44015%2c44016%2c44017%2c44175%2c44177%2c48428%2c48456%2c48458%2c48466%2c48468%2c48650%2c48652%2c49021%2c49050%2c49394%2c49395&statepostal=TX&test=TRUE&minDateTime=2018-03-02T19%3a12%3a05.680Z"
+}
