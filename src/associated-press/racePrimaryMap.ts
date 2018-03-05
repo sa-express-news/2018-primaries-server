@@ -22,3 +22,5 @@ racePrimaryMap.set(44016, "Agriculture Commissioner");
 racePrimaryMap.set(48650, "Agriculture Commissioner");
 racePrimaryMap.set(44017, "Railroad Commissioner");
 racePrimaryMap.set(49050, "Railroad Commissioner");
+
+export default racePrimaryMap;
