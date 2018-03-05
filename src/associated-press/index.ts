@@ -1,5 +1,26 @@
-import { APCandidate, APRace, Candidate, Primary, Race } from "../types";
+import * as rp from "request-promise-native";
+import { APCandidate, APRace, AssociatedPressAPIResponse, Candidate, Primary, Race } from "../types";
 import raceMap from "./racePrimaryMap";
+
+import * as dotenv from "dotenv";
+dotenv.config();
+
+export interface APData {
+    primaries: Primary[];
+    nextURL: string;
+}
+
+export const fetchAPData = async (APIUrl: string): Promise<APData> => {
+    try {
+        const apiResponse: AssociatedPressAPIResponse = await fetchJSON(APIUrl);
+        return {
+            primaries: extractPrimariesFromAP(apiResponse.races),
+            nextURL: `${apiResponse.nextrequest}?apikey=${process.env.AP_KEY as string}`,
+        };
+    } catch (error) {
+        throw error;
+    }
+};
 
 export const extractPrimariesFromAP = (data: APRace[]): Primary[] => {
     const primariesToReturn: Primary[] = [];
@@ -69,4 +90,13 @@ export const extractCandidates = (candidates: APCandidate[]): Candidate[] => {
     });
 
     return extractedCandidates;
+};
+
+export const fetchJSON = async (uri: string): Promise<any> => {
+    try {
+        const response = await rp({ uri, json: true });
+        return response;
+    } catch (error) {
+        throw new Error(error);
+    }
 };

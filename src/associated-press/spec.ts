@@ -1,11 +1,57 @@
 import { assert } from "chai";
+import * as nock from "nock";
 import { AssociatedPressAPIResponse } from "../types";
 import * as ap from "./index";
+
+import * as dotenv from "dotenv";
+dotenv.config();
 
 // This code runs from dist/associated-press, hence the long relative path
 const mockAPResponse: AssociatedPressAPIResponse = require("../../src/associated-press/races-we-want.json");
 
 describe("Associated Press", () => {
+    describe("fetchAPData", () => {
+        after(() => {
+            nock.cleanAll();
+        });
+
+        const apURL = process.env.AP_URL as string;
+
+        let fakeServer;
+        let data: ap.APData;
+
+        before(async () => {
+            fakeServer = nock(process.env.AP_URL_BASE as string)
+                .persist()
+                .get(process.env.AP_URL_PARAMS as string)
+                .reply(200, mockAPResponse);
+            data = await ap.fetchAPData(apURL);
+        });
+
+        describe("Working request", () => {
+            it("returns an object", async () => {
+                assert.isObject(data);
+            });
+            it("the object has a string 'nextURL' property", () => {
+                assert.property(data, "nextURL");
+                assert.isString(data.nextURL);
+            });
+            it("the 'nextURL' property = value returned from API + our API key param", () => {
+                const expectedString = `${mockAPResponse.nextrequest}?apikey=${process.env.AP_KEY as string}`;
+                assert.strictEqual(data.nextURL, expectedString);
+            });
+            it("the object has a 'primaries' property, which is an array of objects", () => {
+                assert.property(data, "primaries");
+                assert.isArray(data.primaries);
+                data.primaries.forEach((primary) => {
+                    assert.isObject(primary);
+                });
+            });
+            it("the 'primaries' array length = number of races in returned data / 2", () => {
+                assert.strictEqual(data.primaries.length, mockAPResponse.races.length / 2);
+            });
+        });
+    });
     describe("extractCandidates", () => {
         describe("Correctly formatted data", () => {
             const mockData = [
