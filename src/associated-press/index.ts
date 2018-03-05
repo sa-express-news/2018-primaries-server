@@ -1,5 +1,6 @@
 import * as rp from "request-promise-native";
 import { APCandidate, APRace, AssociatedPressAPIResponse, Candidate, Primary, Race } from "../types";
+import * as util from "../util";
 import raceMap from "./racePrimaryMap";
 
 import * as dotenv from "dotenv";
@@ -99,4 +100,8 @@ export const fetchJSON = async (uri: string): Promise<any> => {
     } catch (error) {
         throw new Error(error);
     }
+};
+
+export const mergeAndUpdatePrimaries = (oldPrimaries: Primary[], newPrimaries: Primary[]): Primary[] => {
+    return util.mergeAndUpdateArraysOfObjects(oldPrimaries, newPrimaries, "title");
 };

@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import * as nock from "nock";
-import { AssociatedPressAPIResponse } from "../types";
+import { AssociatedPressAPIResponse, Candidate, Primary, Race } from "../types";
 import * as ap from "./index";
 
 import * as dotenv from "dotenv";
@@ -418,6 +418,145 @@ describe("Associated Press", () => {
             //         assert.strictEqual(primary.title, primary.races[1].title);
             //     });
             // });
+        });
+    });
+    describe("mergeAndUpdatePrimaries", () => {
+        const oldPrimaries: Primary[] = [
+            {
+                title: "A",
+                id: 1,
+                races: [
+                    {
+                        isRepublican: true,
+                        title: "A",
+                        candidates: [
+                            {
+                                name: "John Smith",
+                                votes: 0,
+                            },
+                            {
+                                name: "Jane Smith",
+                                votes: 0,
+                            },
+                        ],
+                    },
+                    {
+                        isRepublican: false,
+                        title: "A",
+                        candidates: [
+                            {
+                                name: "Smith John",
+                                votes: 0,
+                            },
+                            {
+                                name: "Smith Jane",
+                                votes: 0,
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                title: "B",
+                id: 1,
+                races: [
+                    {
+                        isRepublican: true,
+                        title: "B",
+                        candidates: [
+                            {
+                                name: "A person",
+                                votes: 0,
+                            },
+                            {
+                                name: "B person",
+                                votes: 0,
+                            },
+                        ],
+                    },
+                    {
+                        isRepublican: false,
+                        title: "B",
+                        candidates: [
+                            {
+                                name: "C person",
+                                votes: 0,
+                            },
+                            {
+                                name: "D person",
+                                votes: 0,
+                            },
+                        ],
+                    },
+                ],
+            },
+        ];
+        const newPrimaries: Primary[] = [
+            {
+                title: "B",
+                id: 1,
+                races: [
+                    {
+                        isRepublican: true,
+                        title: "B",
+                        candidates: [
+                            {
+                                name: "A person",
+                                votes: 500,
+                            },
+                            {
+                                name: "B person",
+                                votes: 500,
+                            },
+                        ],
+                    },
+                    {
+                        isRepublican: false,
+                        title: "B",
+                        candidates: [
+                            {
+                                name: "C person",
+                                votes: 500,
+                            },
+                            {
+                                name: "D person",
+                                votes: 500,
+                            },
+                        ],
+                    },
+                ],
+            },
+        ];
+
+        const merged = ap.mergeAndUpdatePrimaries(oldPrimaries, newPrimaries);
+        it("returns an array", () => {
+            assert.isArray(merged);
+        });
+        it("each item in the array is a Primary", () => {
+            merged.forEach((primary) => {
+                assert.isString(primary.title);
+                assert.isNumber(primary.id);
+                assert.isArray(primary.races);
+            });
+        });
+        it("the array's length = the number of unique primaries", () => {
+            assert.lengthOf(merged, 2);
+        });
+        it("data not present in the second array maintains its state from the first", () => {
+            const primaryA = merged.find((primary) => primary.title === "A") as Primary;
+            primaryA.races.forEach((race) => {
+                race.candidates.forEach((candidate) => {
+                    assert.strictEqual(candidate.votes, 0);
+                });
+            });
+        });
+        it("data present in both arrays returns its copy from the second", () => {
+            const primaryB = merged.find((primary) => primary.title === "B") as Primary;
+            primaryB.races.forEach((race) => {
+                race.candidates.forEach((candidate) => {
+                    assert.strictEqual(candidate.votes, 500);
+                });
+            });
         });
     });
 });
