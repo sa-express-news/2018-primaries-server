@@ -1,5 +1,9 @@
 import { assert } from "chai";
+import { AssociatedPressAPIResponse } from "../types";
 import * as ap from "./index";
+
+// This code runs from dist/associated-press, hence the long relative path
+const mockAPResponse: AssociatedPressAPIResponse = require("../../src/associated-press/races-we-want.json");
 
 describe("Associated Press", () => {
     describe("extractCandidates", () => {
@@ -314,6 +318,60 @@ describe("Associated Press", () => {
                 assert.strictEqual(results[1].percentPrecinctsReporting,
                     mockData[1].reportingUnits[0].precinctsReportingPct);
             });
+        });
+    });
+    describe("extractPrimariesFromAP", () => {
+        const results = ap.extractPrimariesFromAP(mockAPResponse.races);
+        it("returns an array", () => {
+            assert.isArray(results);
+        });
+        it("each item in the array is an object", () => {
+            results.forEach((primary) => {
+                assert.isObject(primary);
+            });
+        });
+        describe("Return objects", () => {
+            it("the number of objects matches the number of param races / 2", () => {
+                assert.strictEqual(results.length, mockAPResponse.races.length / 2);
+            });
+            it("each object has a string 'title', and each one matches the title of the races in param", () => {
+                const expectedTitles = [
+                    "Land Commissioner",
+                    "Agriculture Commissioner",
+                    "U.S. House - District 21",
+                    "Governor",
+                    "U.S. Senate",
+                    "U.S. House - District 35",
+                    "Lieutenant Governor",
+                    "Railroad Commissioner",
+                    "U.S. House - District 23",
+                ];
+
+                expectedTitles.forEach((title) => {
+                    assert.isDefined(results.find((result) => result.title === title));
+                });
+            });
+            it("each object has a 'races' property, which is an array of length 2", () => {
+                results.forEach((primary) => {
+                    assert.isArray(primary.races);
+                    assert.lengthOf(primary.races, 2);
+                });
+            });
+            it("there is one Democrat and one Republican race in each primary", () => {
+                results.forEach((primary) => {
+                    const dem = primary.races.filter((race) => race.isRepublican === false);
+                    const rep = primary.races.filter((race) => race.isRepublican === true);
+
+                    assert.isDefined(dem);
+                    assert.isDefined(rep);
+                });
+            });
+            // it("the title for each of the two races matches the primary's title", () => {
+            //     results.forEach((primary) => {
+            //         assert.strictEqual(primary.title, primary.races[0].title);
+            //         assert.strictEqual(primary.title, primary.races[1].title);
+            //     });
+            // });
         });
     });
 });
