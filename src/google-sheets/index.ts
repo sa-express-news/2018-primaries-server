@@ -2,6 +2,7 @@
 import * as fs from "fs";
 import * as readlineSync from "readline-sync";
 import { promisify } from "util";
+import primaryIDMap from "../data-store/primaryIDMap";
 import { Candidate, Primary, Race } from "../types";
 const google = require("googleapis");
 const googleAuth = require("google-auth-library");
@@ -170,7 +171,7 @@ export const buildPrimaries = (data: string[][]): Primary[] => {
         const races: Race[] = raceRows.map((row) => buildRace(row));
 
         primaries.push({
-            id: 0, // Hard coded - figure this out
+            id: primaryIDMap.get(raceName),
             races,
             title: raceName,
         });

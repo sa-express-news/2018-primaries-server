@@ -1,4 +1,5 @@
 import { assert } from "chai";
+import primaryIDMap from "../data-store/primaryIDMap";
 import { Candidate } from "../types";
 import * as gs from "./index";
 
@@ -70,11 +71,70 @@ describe("Google Sheets", () => {
     });
     describe("buildPrimaries", () => {
         describe("Correctly formatted data", () => {
-            const data = [
-                ["Bexar County DA", "TRUE", "John Smith", "100", "Jane Smith", "101"],
-                ["Bexar County DA", "FALSE", "Smith Jones", "102", "Smith Janes", "103"],
-                ["County Clerk", "TRUE", "Bob Luther", "104"],
-            ];
+            const data = [['Bexar County District Attorney',
+                'TRUE',
+                'Tylden Shaeffer',
+                '0'],
+            ['Bexar County District Attorney',
+                'FALSE',
+                'Joe Gonzales',
+                '0',
+                'Nicholas "Nico" LaHood',
+                '0'],
+            ['District Clerk', 'TRUE', 'Donna Kay McKinney', '0'],
+            ['District Clerk',
+                'FALSE',
+                'Larry Romo',
+                '0',
+                'Mary Angie Garcia',
+                '0'],
+            ['County Clerk', 'TRUE', 'Gerard C. "Gerry" Rickhoff', '0'],
+            ['County Clerk',
+                'FALSE',
+                'Lucy Adame-Clark',
+                '0',
+                'Tim Ybarra',
+                '0'],
+            ['County Commissioner Pct. 2',
+                'TRUE',
+                'Ismael Garcia',
+                '0',
+                'Theresa Connolly',
+                '0'],
+            ['County Commissioner Pct. 2',
+                'FALSE',
+                'Mario Bravo',
+                '0',
+                'Paul Elizondo',
+                '0',
+                'Queta Rodriguez',
+                '0'],
+            ['County Probate Court-at-Law No 1 Judge',
+                'TRUE',
+                'Anna Gordon Torres',
+                '0',
+                'Kelly M. Cross',
+                '0'],
+            ['County Probate Court-at-Law No 1 Judge',
+                'FALSE',
+                'Oscar Kazen',
+                '0'],
+            ['County Chair',
+                'TRUE',
+                'Jo Ann Ponce Gonzalez',
+                '0',
+                'Dwight Parscale',
+                '0',
+                'Andres Holliday',
+                '0',
+                'Cynthia Brehm',
+                '0'],
+            ['County Chair',
+                'FALSE',
+                'Manuel Medina',
+                '0',
+                'Monica Ramirez Alcantara',
+                '0']];
 
             const primaries = gs.buildPrimaries(data);
 
@@ -96,6 +156,14 @@ describe("Google Sheets", () => {
                 primaries.forEach((primary) => {
                     assert.property(primary, "id");
                     assert.isNumber(primary.id);
+                });
+            });
+            it("the id matches the one in the master list for each primary", () => {
+                primaries.forEach((primary) => {
+                    const expectedID = primaryIDMap.get(primary.title);
+                    console.log(expectedID);
+                    console.log(primary.title);
+                    assert.strictEqual(expectedID, primary.id);
                 });
             });
             it("each Primary object has a 'races' property, which is an array of Race objects", () => {
