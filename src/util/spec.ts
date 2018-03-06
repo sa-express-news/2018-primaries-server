@@ -45,4 +45,10 @@ describe("mergeAndUpdateArraysOfObjects", () => {
         const jim = merged.find((object: Person) => object.name === "Jim") as Person;
         assert.strictEqual(jim.age, 40);
     });
+    it("if the first parameter array is empty, the returned array is just the second one passed", () => {
+        const result = util.mergeAndUpdateArraysOfObjects([], array2, "name");
+        assert.lengthOf(result, 2);
+        assert.strictEqual(result[0].name, "Mary");
+        assert.strictEqual(result[1].name, "Jim");
+    });
 });
