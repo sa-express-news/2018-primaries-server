@@ -1,14 +1,41 @@
 require("dotenv").config();
 
-import { fetchGoogleSheetData } from "./google-sheets";
+import * as dataStore from "./data-store";
+import socket from "./socket";
+import * as types from "./types";
 
 const main = async () => {
-    if (process.env.SPREADSHEET_ID) {
-        const spreadsheetData: string[][] = await
-            fetchGoogleSheetData(process.env.SPREADSHEET_ID, "Election Data!A2:E");
-        spreadsheetData[0].forEach((datum) => {
-            console.log(datum, typeof datum);
+
+    try {
+        const port = parseInt(process.env.SOCKET_PORT as string, 10);
+
+        socket.listen(port);
+
+        let data = await dataStore.generateDataStore({
+            primaries: [],
+            nextAPRequestURL: process.env.AP_URL as string,
         });
+
+        socket.on("connection", (clientSocket) => {
+            clientSocket.emit("data", JSON.stringify({ primaries: data.primaries }));
+        });
+
+        const updateDataStore = async (): Promise<void> => {
+            data = await dataStore.generateDataStore(data);
+        };
+
+        const broadcastData = (): void => {
+            socket.sockets.emit("data", JSON.stringify(data.primaries));
+        };
+
+        const updateAndPushNewData = async (): Promise<void> => {
+            await updateDataStore;
+            broadcastData();
+        };
+
+        setInterval(updateAndPushNewData, 120000);
+    } catch (error) {
+        throw error;
     }
 };
 
