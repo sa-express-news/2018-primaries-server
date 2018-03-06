@@ -1,5 +1,6 @@
 import { assert } from "chai";
 import * as nock from "nock";
+import primaryIDMap from "../data-store/primaryIDMap";
 import { AssociatedPressAPIResponse, Candidate, Primary, Race } from "../types";
 import * as ap from "./index";
 
@@ -410,6 +411,12 @@ describe("Associated Press", () => {
 
                     assert.isDefined(dem);
                     assert.isDefined(rep);
+                });
+            });
+            it("each primary has a number 'id' property, which matches the id in the master map", () => {
+                results.forEach((primary) => {
+                    const expectedID = primaryIDMap.get(primary.title);
+                    assert.strictEqual(expectedID, primary.id);
                 });
             });
             // it("the title for each of the two races matches the primary's title", () => {

@@ -1,4 +1,5 @@
 import * as rp from "request-promise-native";
+import primaryIDMap from "../data-store/primaryIDMap";
 import { APCandidate, APRace, AssociatedPressAPIResponse, Candidate, Primary, Race } from "../types";
 import * as util from "../util";
 import raceMap from "./racePrimaryMap";
@@ -43,7 +44,7 @@ export const extractPrimariesFromAP = (data: APRace[]): Primary[] => {
 
                 primariesToReturn.push({
                     title: raceTitle,
-                    id: 0,
+                    id: primaryIDMap.get(raceTitle),
                     races: [newRaceArray[0]],
                 });
             }

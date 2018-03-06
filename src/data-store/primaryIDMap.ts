@@ -13,7 +13,7 @@ primaryIDMap.set("Bexar County District Attorney", 9);
 primaryIDMap.set("District Clerk", 10);
 primaryIDMap.set("County Clerk", 11);
 primaryIDMap.set("County Commissioner Pct. 2", 12);
-primaryIDMap.set("County Probate Court-at-Law No 1 Judge", 13);
+primaryIDMap.set("County Probate Court-at-Lw No 1 Judge", 13);
 primaryIDMap.set("County Chair", 14);
 primaryIDMap.set("State Representative - District 121", 15);
 primaryIDMap.set("State Representative - District 122", 16);
@@ -21,3 +21,5 @@ primaryIDMap.set("State Representative - District 116", 17);
 primaryIDMap.set("State Representative - District 117", 18);
 primaryIDMap.set("State Representative - District 118", 19);
 primaryIDMap.set("State Representative - District 124", 20);
+
+export default primaryIDMap;
