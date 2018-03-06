@@ -22,5 +22,18 @@ racePrimaryMap.set(44016, "Agriculture Commissioner");
 racePrimaryMap.set(48650, "Agriculture Commissioner");
 racePrimaryMap.set(44017, "Railroad Commissioner");
 racePrimaryMap.set(49050, "Railroad Commissioner");
+racePrimaryMap.set(48606, "State Representative - District 121");
+racePrimaryMap.set(48960, "State Representative - District 121");
+racePrimaryMap.set(48607, "State Representative - District 122");
+racePrimaryMap.set(48961, "State Representative - District 122");
+racePrimaryMap.set(48961, "State Representative - District 122");
+racePrimaryMap.set(44347, "State Representative - District 116");
+racePrimaryMap.set(48806, "State Representative - District 116");
+racePrimaryMap.set(48602, "State Representative - District 117");
+racePrimaryMap.set(44348, "State Representative - District 117");
+racePrimaryMap.set(44349, "State Representative - District 118");
+racePrimaryMap.set(48808, "State Representative - District 118");
+racePrimaryMap.set(49006, "State Representative - District 124");
+racePrimaryMap.set(44355, "State Representative - District 124");
 
 export default racePrimaryMap;
