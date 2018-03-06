@@ -12,7 +12,7 @@ export const generateDataStore = async (previousDataStore: DataStore): Promise<D
     try {
         const apData = await ap.fetchAPData(previousDataStore.nextAPRequestURL);
         const { primaries: apPrimaries, nextURL } = apData;
-        const googleData: string[][] = await google.fetchGoogleSheetData(process.env.SPREADSHEET_ID as string, "Election Data!A2:E");
+        const googleData: string[][] = await google.fetchGoogleSheetData(process.env.SPREADSHEET_ID as string, "Election Data!A2:N");
         const googlePrimaries = google.buildPrimaries(googleData);
 
         const mergedPrimaries = apPrimaries.concat(googlePrimaries);
