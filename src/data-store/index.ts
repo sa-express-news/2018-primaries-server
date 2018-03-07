@@ -10,7 +10,7 @@ export const dataStore: DataStore = {
 
 export const generateDataStore = async (previousDataStore: DataStore): Promise<DataStore> => {
     try {
-        const apData = await ap.fetchAPData(previousDataStore.nextAPRequestURL, previousDataStore.primaries);
+        const apData = await ap.fetchAPData(process.env.AP_URL as string, previousDataStore.primaries);
         const { primaries: apPrimaries, nextURL } = apData;
         const googleData: string[][] = await google.fetchGoogleSheetData(process.env.SPREADSHEET_ID as string, "Election Data!A2:N");
         const googlePrimaries = google.buildPrimaries(googleData);

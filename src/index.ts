@@ -30,7 +30,6 @@ const main = async () => {
 
         const updateAndPushNewData = async (): Promise<void> => {
             await updateDataStore();
-            console.log(data);
             broadcastData();
         };
 
