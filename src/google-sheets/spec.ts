@@ -6,7 +6,7 @@ import * as gs from "./index";
 describe("Google Sheets", () => {
     describe("buildCandidates", () => {
         describe("Correctly formatted data", () => {
-            const data = ["John Smith (i)", "500", "Jane Smith", "1000"];
+            const data = ["John Smith (i)", "500", "Jane Smith ✔", "1000"];
             const candidates = gs.buildCandidates(data);
 
             it("returns an array of objects", () => {
@@ -32,9 +32,33 @@ describe("Google Sheets", () => {
                 assert.property(incumbent, "incumbent");
                 assert.isTrue(incumbent.incumbent);
             });
+            it("if the param name contains '✔', the object will have 'winner' set to true", () => {
+                const winner = candidates[1];
+                assert.property(winner, "winner");
+                assert.isTrue(winner.winner);
+            });
+            it("if the param contains '(runoff)', the object will have 'runoff' set to true", () => {
+                const data = ["John Smith (runoff)", "500", "Jane Smith (runoff)", "1000"];
+                const candidates = gs.buildCandidates(data);
+                candidates.forEach((candidate) => {
+                    assert.property(candidate, "runoff");
+                    assert.isTrue(candidate.runoff);
+                });
+            });
             it("if the candidate is an incumbent, '(i)' is removed from their name", () => {
                 const incumbent = candidates[0];
                 assert.isFalse(incumbent.name.includes("(i)"));
+            });
+            it("if the candidate is the winner, the '✔' is removed from their name", () => {
+                const winner = candidates[1];
+                assert.isFalse(winner.name.includes("(✔)"));
+            });
+            it("if the candidate is in a runoff, the '(runoff)' is removed from their name", () => {
+                const data = ["John Smith (runoff)", "500", "Jane Smith (runoff)", "1000"];
+                const candidates = gs.buildCandidates(data);
+                candidates.forEach((candidate) => {
+                    assert.isFalse(candidate.name.includes("(runoff)"));
+                });
             });
         });
         describe("Incorrectly formatted data", () => {

@@ -206,15 +206,28 @@ export const getAllAtSubarrayIndex = (arrays: any[][], index: number): any[] => 
 // Assumes array is structured like ['candidate', '#', 'candidate', '#']
 
 export const buildCandidates = (array: string[]): Candidate[] => {
+
+    const scrubSignifiers = (string: string): string => {
+        let returnString = string;
+        returnString = returnString.replace("✔", "");
+        returnString = returnString.replace("(i)", "");
+        returnString = returnString.replace("(runoff)", "");
+        return returnString;
+    }
+
     const candidates: Candidate[] = [];
     for (let i = 0; i < array.length - 1; i += 2) {
         if (array[i].length > 0) {
             const voteCount = parseInt(array[i + 1], 10);
             const isIncumbent = array[i].includes("(i)");
+            const isWinner = array[i].includes("✔");
+            const isRunoff = array[i].includes("(runoff)");
             const candidate: Candidate = {
-                name: isIncumbent ? array[i].replace("(i)", "") : array[i],
+                name: scrubSignifiers(array[i]),
                 votes: isNaN(voteCount) ? 0 : voteCount,
-                incumbent: array[i].includes("(i)"),
+                incumbent: isIncumbent,
+                winner: isWinner,
+                runoff: isRunoff,
             };
             candidates.push(candidate);
         }
