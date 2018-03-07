@@ -29,7 +29,7 @@ const main = async () => {
         };
 
         const updateAndPushNewData = async (): Promise<void> => {
-            await updateDataStore;
+            await updateDataStore();
             broadcastData();
         };
 
