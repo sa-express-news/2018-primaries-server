@@ -30,10 +30,11 @@ const main = async () => {
 
         const updateAndPushNewData = async (): Promise<void> => {
             await updateDataStore();
+            console.log("broadcasting");
             broadcastData();
         };
 
-        setInterval(updateAndPushNewData, 60000);
+        setInterval(updateAndPushNewData, 90000);
     } catch (error) {
         throw error;
     }
