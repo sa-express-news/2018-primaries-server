@@ -25,13 +25,12 @@ export const fetchAPData = async (APIUrl: string, oldPrimaries: Primary[]): Prom
 };
 
 export const extractPrimariesFromAP = (data: APRace[], originalArray: Primary[]): Primary[] => {
-    const primariesToReturn: Primary[] = [];
 
     data.forEach((race: APRace) => {
         // Race IDs come through from the API as strings
         const raceTitle = raceMap.get(parseInt(race.raceID, 10));
         if (raceTitle) {
-            const matchingPrimary = primariesToReturn.find((primary) => primary.title === raceTitle);
+            const matchingPrimary = originalArray.find((primary) => primary.title === raceTitle);
             if (matchingPrimary) {
 
                 // The race extraction expects an array of races
@@ -42,7 +41,7 @@ export const extractPrimariesFromAP = (data: APRace[], originalArray: Primary[])
             } else {
                 const newRaceArray = extractRacesFromAP([race]);
 
-                primariesToReturn.push({
+                originalArray.push({
                     title: raceTitle,
                     id: primaryIDMap.get(raceTitle),
                     races: [newRaceArray[0]],
@@ -51,7 +50,7 @@ export const extractPrimariesFromAP = (data: APRace[], originalArray: Primary[])
         }
     });
 
-    return primariesToReturn;
+    return originalArray;
 };
 
 export const extractRacesFromAP = (races: APRace[]): Race[] => {
