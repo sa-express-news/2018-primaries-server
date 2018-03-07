@@ -24,7 +24,7 @@ export const fetchAPData = async (APIUrl: string, oldPrimaries: Primary[]): Prom
     }
 };
 
-export const extractPrimariesFromAP = (data: APRace[], primariesToReturn: Primary[]): Primary[] => {
+export const extractPrimariesFromAP = (data: APRace[], array: Primary[]): Primary[] => {
     const primariesToReturn: Primary[] = []
 
     data.forEach((race: APRace) => {
