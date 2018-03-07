@@ -33,7 +33,7 @@ const main = async () => {
             broadcastData();
         };
 
-        setInterval(updateAndPushNewData, 120000);
+        setInterval(updateAndPushNewData, 300000);
     } catch (error) {
         throw error;
     }
