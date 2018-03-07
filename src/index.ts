@@ -25,7 +25,7 @@ const main = async () => {
         };
 
         const broadcastData = (): void => {
-            socket.sockets.emit("data", JSON.stringify(data.primaries));
+            socket.sockets.emit("data", JSON.stringify({ primaries: data.primaries }));
         };
 
         const updateAndPushNewData = async (): Promise<void> => {
