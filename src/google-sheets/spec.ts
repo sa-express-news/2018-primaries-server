@@ -6,7 +6,7 @@ import * as gs from "./index";
 describe("Google Sheets", () => {
     describe("buildCandidates", () => {
         describe("Correctly formatted data", () => {
-            const data = ["John Smith", "500", "Jane Smith", "1000"];
+            const data = ["John Smith (i)", "500", "Jane Smith", "1000"];
             const candidates = gs.buildCandidates(data);
 
             it("returns an array of objects", () => {
@@ -26,6 +26,15 @@ describe("Google Sheets", () => {
                     assert.property(candidate, "votes");
                     assert.isNumber(candidate.votes);
                 });
+            });
+            it("if the param name contains '(i)', the object will have 'incumbent' set to true", () => {
+                const incumbent = candidates[0];
+                assert.property(incumbent, "incumbent");
+                assert.isTrue(incumbent.incumbent);
+            });
+            it("if the candidate is an incumbent, '(i)' is removed from their name", () => {
+                const incumbent = candidates[0];
+                assert.isFalse(incumbent.name.includes("(i)"));
             });
         });
         describe("Incorrectly formatted data", () => {

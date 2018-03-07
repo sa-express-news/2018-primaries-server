@@ -210,9 +210,11 @@ export const buildCandidates = (array: string[]): Candidate[] => {
     for (let i = 0; i < array.length - 1; i += 2) {
         if (array[i].length > 0) {
             const voteCount = parseInt(array[i + 1], 10);
+            const isIncumbent = array[i].includes("(i)");
             const candidate: Candidate = {
-                name: array[i],
+                name: isIncumbent ? array[i].replace("(i)", "") : array[i],
                 votes: isNaN(voteCount) ? 0 : voteCount,
+                incumbent: array[i].includes("(i)"),
             };
             candidates.push(candidate);
         }
