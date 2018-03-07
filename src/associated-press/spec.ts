@@ -26,7 +26,7 @@ describe("Associated Press", () => {
                 .persist()
                 .get(process.env.AP_URL_PARAMS as string)
                 .reply(200, mockAPResponse);
-            data = await ap.fetchAPData(apURL);
+            data = await ap.fetchAPData(apURL, []);
         });
 
         describe("Working request", () => {
@@ -368,7 +368,7 @@ describe("Associated Press", () => {
         });
     });
     describe("extractPrimariesFromAP", () => {
-        const results = ap.extractPrimariesFromAP(mockAPResponse.races);
+        const results = ap.extractPrimariesFromAP(mockAPResponse.races, []);
         it("returns an array", () => {
             assert.isArray(results);
         });
