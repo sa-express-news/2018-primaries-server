@@ -1,6 +1,6 @@
 export interface DataStore {
     primaries: Primary[];
-    nextAPRequestURL: string;
+    nextAPRequestURL?: string;
 }
 
 export interface AssociatedPressAPIResponse {

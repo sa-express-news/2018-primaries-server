@@ -12,11 +12,11 @@ export interface APData {
     nextURL: string;
 }
 
-export const fetchAPData = async (APIUrl: string, oldPrimaries: Primary[]): Promise<APData> => {
+export const fetchAPData = async (APIUrl: string): Promise<APData> => {
     try {
         const apiResponse: AssociatedPressAPIResponse = await fetchJSON(APIUrl);
         return {
-            primaries: extractPrimariesFromAP(apiResponse.races, oldPrimaries),
+            primaries: extractPrimariesFromAP(apiResponse.races),
             nextURL: `${apiResponse.nextrequest}&apikey=${process.env.AP_KEY as string}`,
         };
     } catch (error) {
@@ -24,7 +24,7 @@ export const fetchAPData = async (APIUrl: string, oldPrimaries: Primary[]): Prom
     }
 };
 
-export const extractPrimariesFromAP = (data: APRace[], array: Primary[]): Primary[] => {
+export const extractPrimariesFromAP = (data: APRace[]): Primary[] => {
     const primariesToReturn: Primary[] = []
 
     data.forEach((race: APRace) => {

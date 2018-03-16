@@ -13,7 +13,6 @@ const main = async () => {
 
         let data = await dataStore.generateDataStore({
             primaries: [],
-            nextAPRequestURL: process.env.AP_URL as string,
         });
 
         socket.on("connection", (clientSocket) => {
@@ -30,7 +29,6 @@ const main = async () => {
 
         const updateAndPushNewData = async (): Promise<void> => {
             await updateDataStore();
-            console.log("broadcasting");
             broadcastData();
         };
 
