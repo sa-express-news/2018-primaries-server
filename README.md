@@ -106,3 +106,7 @@ At a high level, this application does the following:
 ## Deployment ##
 
 We ran this application on an Amazon Lightsail instance using [the PM2 process manager.](http://pm2.keymetrics.io/)
+
+## Troubleshooting / FAQ ##
+
+Questions, concerns or PRs? Reach out to Kia Farhang at `mfarhang@express-news.net`.
