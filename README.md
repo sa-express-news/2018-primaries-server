@@ -103,6 +103,42 @@ At a high level, this application does the following:
 - Sets up an interval (we used 90 seconds) to fetch new Primary data from Google Sheets and the AP, merge it with the previous data store, and send the new data store to connected clients.
 - Send the current data store to clients on connection.
 
+The following sections will explore those tasks in depth.
+
+## Fetching Data From Google Sheets ##
+
+To capture county-level elections data, we needed a tool that was a) Accessible from an appliaction like this one, and b) Simple enough so non-developers could update the data.
+
+We settled on Google Sheets. This required some compromises, mainly in how rigidly the data had to be structured.
+
+If you take a look at [the spreadsheet we used,](https://docs.google.com/spreadsheets/d/1U2abauDTK8zTsoEqAV60TSNAyHGP8NGtmBDiObvSp24/edit?usp=sharing) you'll see a collection of races in the first sheet (which is the only one this application touched).
+
+Each primary required two rows - one for the Republican race and one for the Democratic one. Here's how a row is structured:
+
+`Title` - Self-explanatory.
+`isRepublican` - See the Race data structure above. Note that this comes into the application as a string; we had to parse it to use a boolean instead.
+`Candidate` + `Votes` - The rest of the spreadsheet is just a repetition of these columns, one each for every candidate in a race.
+
+If you take a look in `src/google-sheets/index.ts`, you'll see lots of code to parse this hard-coded structure into the data we need.
+
+You'll also notice some notations in the names of some candidates in the spreadsheet. These are special (again, hard coded) symbols we used to parse additional data:
+
+- The checkmark denotes the candidate won, and we attached `winner: true` accordingly if we found it.
+- The (i) denotes an incumbent and resulted in `incumbent: true`.
+- The (runoff) denotes the candidate headed to a runoff, which led to `runoff: true`.
+
+Again, none of this is ideal, but it got the job done and meant we didn't have to update election results but could leave it to others in the newsroom while we monitored the page and this application.
+
+## Working With the AP API ##
+
+The [Associated Press Elections API](https://developer.ap.org/ap-elections-api) is a great, easy-to-use service that doesn't require much explanation. The Express-News purchased access to it and obtained an API key.
+
+Most of the work this application does with the AP API is simple. The AP provides more information than we need, so `src/associated-press-index.ts` includes code to extract what we need from those results.
+
+The API also sends data by race, so there's code in that file that consults a map of AP race IDs (`src/associated-press/racePrimaryMap.ts`) and creates Primaries containing the two Races for each one.
+
+Note that with every response, the AP API sends a URL that, when pinged, will return _only the results for races that have been updated_. Working with this URL was a nightmare, so we decided at the last minute to forgo the AP's recommendation and just request the full payload every time. Since we were only requesting a couple dozen races, we had no problems whatsoever.
+
 ## Deployment ##
 
 We ran this application on an Amazon Lightsail instance using [the PM2 process manager.](http://pm2.keymetrics.io/)
